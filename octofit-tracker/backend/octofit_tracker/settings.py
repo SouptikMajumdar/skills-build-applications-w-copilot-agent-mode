@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-06!-&(cw*v66l_z7m_ytrp_81c!$m(&)3lp#9o$h_^d3=(!8k2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "octofit_tracker",
+    "corsheaders",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -51,6 +54,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = "octofit_tracker.urls"
 
